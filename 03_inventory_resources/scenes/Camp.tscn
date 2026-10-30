@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dusw6gaxussle"]
+
+[ext_resource type="Texture2D" uid="uid://djwlqkh7f2s0p" path="res://assets/sprite.png" id="1_qq6sp"]
+[ext_resource type="Texture2D" uid="uid://dcnsfxg7yc3ut" path="res://assets/light.png" id="2_rxpqv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxpqv"]
+atlas = ExtResource("1_qq6sp")
+region = Rect2(48, 36, 16, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb80t"]
+atlas = ExtResource("1_qq6sp")
+region = Rect2(64, 36, 16, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkqiv"]
+atlas = ExtResource("1_qq6sp")
+region = Rect2(32, 36, 16, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ox6m5"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_rxpqv")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_pb80t")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_mkqiv")
+}],
+"loop": 1,
+"name": &"burn",
+"speed": 5.0
+}]
+
+[node name="Camp" type="Control" unique_id=1505197293]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=667623526]
+sprite_frames = SubResource("SpriteFrames_ox6m5")
+animation = &"burn"
+autoplay = "burn"
+frame_progress = 0.049692784
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D" unique_id=364707919]
+color = Color(0.97099215, 0.7136709, 0, 1)
+texture = ExtResource("2_rxpqv")

@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://becl42c5sun8j"]
+
+[ext_resource type="Script" uid="uid://bbeanwi7uinrd" path="res://scenes/main_menu.gd" id="1_2wh52"]
+[ext_resource type="FontFile" uid="uid://86bilq335tea" path="res://assets/ComicoroRu_0.ttf" id="2_ow34m"]
+[ext_resource type="Texture2D" uid="uid://drmhrhtwgqkg8" path="res://assets/player.png" id="3_l72w3"]
+
+[sub_resource type="Theme" id="Theme_j84rc"]
+default_font = ExtResource("2_ow34m")
+
+[sub_resource type="Theme" id="Theme_mdl7e"]
+default_font = ExtResource("2_ow34m")
+
+[sub_resource type="Theme" id="Theme_0dvou"]
+default_font = ExtResource("2_ow34m")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j84rc"]
+atlas = ExtResource("3_l72w3")
+region = Rect2(36, 4, 8, 7)
+
+[sub_resource type="Theme" id="Theme_ox6m5"]
+default_font = ExtResource("2_ow34m")
+
+[node name="MainMenu" type="Control" unique_id=1663378153]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2wh52")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1448492992]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.17784297, 0.5576145, 0.65524584, 1)
+
+[node name="StartButton" type="Button" parent="." unique_id=1462376548]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 96.0
+offset_right = 148.0
+offset_bottom = 119.0
+theme = SubResource("Theme_j84rc")
+text = "Начать игру"
+
+[node name="NameInput" type="LineEdit" parent="." unique_id=1131161017]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 62.0
+offset_right = 147.5
+offset_bottom = 93.0
+theme = SubResource("Theme_mdl7e")
+
+[node name="Label" type="Label" parent="." unique_id=1863523281]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 46.0
+offset_right = 204.0
+offset_bottom = 61.0
+theme = SubResource("Theme_0dvou")
+text = "Введите своё имя и начни играть"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=71800649]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 5.0
+offset_right = 134.0
+offset_bottom = 45.0
+texture = SubResource("AtlasTexture_j84rc")
+
+[node name="ErrorLabel" type="Label" parent="." unique_id=1294016781]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 64.0
+offset_right = 150.0
+offset_bottom = 96.0
+scale = Vector2(0.3, 0.3)
+theme = SubResource("Theme_ox6m5")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
